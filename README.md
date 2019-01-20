@@ -1,7 +1,7 @@
-# Wiki Upload
+# Mongo S3 Backup 2
 
 ### What can it do ?
-This package is created to provide a simplified api for uploading content to any Mediawiki software
+A utility to backup/dump mongo database to amazon s3
 ### How do I get set up?
 - Install the package
  `npm install mongo-s3-backup-2`
