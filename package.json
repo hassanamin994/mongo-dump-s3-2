@@ -1,6 +1,6 @@
 {
   "name": "mongo-dump-s3-2",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A utility to backup/dump mongo database to amazon s3",
   "main": "index.js",
   "scripts": {
