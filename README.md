@@ -4,7 +4,7 @@
 This package is created to provide a simplified api for uploading content to any Mediawiki software
 ### How do I get set up?
 - Install the package
- `npm install mongo-s3-backup`
+ `npm install mongo-s3-backup-2`
 - Import it into your file
 - Setup a backup client with your aws credential
 - Initiate the backup
