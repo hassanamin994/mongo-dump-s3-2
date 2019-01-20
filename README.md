@@ -1,0 +1,41 @@
+# Wiki Upload
+
+### What can it do ?
+This package is created to provide a simplified api for uploading content to any Mediawiki software
+### How do I get set up?
+- Install the package
+ `npm install mongo-s3-backup`
+- Import it into your file
+- Setup a backup client with your aws credential
+- Initiate the backup
+
+### Working example:
+
+  ```
+  const mognoS3Backup = require('mongo-s3-backup');
+  const backupClient = mognoS3Backup({ bucketName: 'myBucketName', accessKey: 'myAccessKey', accessSecret: 'myAccessSecret' });
+
+  backupClient.backupDatabase({ uri: dbConnectionUri, backupName: 'test_backup' })
+  .then(response => {
+   console.log('Success response ', response)
+    /*
+      Success response includes default aws response to uploading files
+      example: 
+        { 
+          ETag: '"exampleEtag"',
+          Location: 'https://examplebucket.s3.amazonaws.com/test_backup',
+          key: 'test_backup',
+          Key: 'test_backup',
+          Bucket: 'mybucket' 
+        }
+
+    */
+  })
+  .catch(err => {
+    console.log(err)
+  })
+  ```
+#### The package supports both promises & callback patterns
+
+### Authors  
+##### [**Hassan Amin**](https://github.com/hassanamin994)
