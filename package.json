@@ -1,5 +1,5 @@
 {
-  "name": "mongo-s3-backup-2",
+  "name": "mongo-dump-s3-2",
   "version": "1.0.0",
   "description": "A utility to backup/dump mongo database to amazon s3",
   "main": "index.js",
