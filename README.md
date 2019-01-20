@@ -1,4 +1,4 @@
-# Mongo S3 Backup 2
+# Mongo Dump S3 2
 
 ### What can it do ?
 A utility to backup/dump mongo database to amazon s3
