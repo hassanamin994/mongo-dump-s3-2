@@ -14,5 +14,8 @@
     "aws"
   ],
   "author": "Hassan Amin ( h.m.amin994@gmail.com )",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.391.0"
+  }
 }
