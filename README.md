@@ -4,7 +4,7 @@
 A utility to backup/dump mongo database to amazon s3
 ### How do I get set up?
 - Install the package
- `npm install mongo-s3-backup-2`
+ `npm install mongo-dump-s3-2`
 - Import it into your file
 - Setup a backup client with your aws credential
 - Initiate the backup
@@ -12,7 +12,7 @@ A utility to backup/dump mongo database to amazon s3
 ### Working example:
 
   ```
-  const mognoS3Backup = require('mongo-s3-backup');
+  const mognoS3Backup = require('mongo-dump-s3-2');
   const backupClient = mognoS3Backup({ bucketName: 'myBucketName', accessKey: 'myAccessKey', accessSecret: 'myAccessSecret' });
 
   backupClient.backupDatabase({ uri: dbConnectionUri, backupName: 'test_backup' })
