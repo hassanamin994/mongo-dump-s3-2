@@ -12,10 +12,10 @@ A utility to backup/dump mongo database to amazon s3
 ### Working example:
 
   ```
-  const mognoS3Backup = require('mongo-dump-s3-2');
-  const backupClient = mognoS3Backup({ bucketName: 'myBucketName', accessKey: 'myAccessKey', accessSecret: 'myAccessSecret' });
+  const mongoS3Backup = require('mongo-dump-s3-2');
+  const backupClient = mongoS3Backup({ bucketName: 'myBucketName', accessKey: 'myAccessKey', accessSecret: 'myAccessSecret' });
 
-  backupClient.backupDatabase({ uri: dbConnectionUri, backupName: 'test_backup' })
+  backupClient.backupDatabase({ uri: 'mongodb://localhost/test-database', backupName: 'test_backup' })
   .then(response => {
    console.log('Success response ', response)
     /*
