@@ -9,6 +9,9 @@ A utility to backup/dump mongo database to amazon s3
 - Setup a backup client with your aws credential
 - Initiate the backup
 
+### Notes about the generated dump
+#### The generated mongo dump is an archive, so while restoring you should mark the --archive flag on
+`mongorestore --db mydb --archive=/path/to/dump`
 ### Working example:
 
   ```
@@ -35,6 +38,10 @@ A utility to backup/dump mongo database to amazon s3
     console.log(err)
   })
   ```
+### Possible options passed to `backupDatabase` method
+- `uri: string` `required` the connection string for the mongo database `
+- `backupName: string` `required` the name of the backup to be dumped on s3
+- `gzip: true|false` wheather to use gzip option for the dump command, defaults to false
 #### The package supports both promises & callback patterns
 
 ### Authors  

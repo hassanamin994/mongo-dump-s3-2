@@ -13,9 +13,9 @@ module.exports = function({ bucketName, accessKey, accessSecret }) {
     Bucket: bucketName,
   });
 
-  function dumpDatabase({uri, backupName, options = {}}, callback = (err, backupPath) => {}) {
+  function dumpDatabase({ uri, backupName, gzip }, callback = (err, backupPath) => {}) {
     const dumpPath = path.resolve(__dirname, backupName)
-    const command = `mongodump --uri ${uri} ${options.gzip ? '--gzip' : ''} --archive=${dumpPath}`;
+    const command = `mongodump --uri ${uri} ${gzip ? ' --gzip' : ''} --archive=${dumpPath}`;
     exec(command, (err, stdout, stderr) => {
       // We cannot trust stderr cause mongo spits warnings/logs on this channel
       // so we check if the dump was created
@@ -44,10 +44,12 @@ module.exports = function({ bucketName, accessKey, accessSecret }) {
   }
 
   return {
-    backupDatabase({ uri, backupName, options = {} }, callback = () => {}) {
-
+    backupDatabase({ uri, backupName, gzip }, callback = () => {}) {
       return new Promise((resolve, reject) => {
-        dumpDatabase({uri, backupName, options}, (err, backupPath) => {
+        if (!uri || !backupName) {
+          throw new Error('uri and backupName are required parameters');
+        }
+        dumpDatabase({uri, backupName, gzip}, (err, backupPath) => {
           if (err) {
             callback(err);
             return reject(err);
