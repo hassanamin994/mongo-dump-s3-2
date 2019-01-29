@@ -11,7 +11,7 @@ A utility to backup/dump mongo database to amazon s3
 
 ### Notes about the generated dump
 #### The generated mongo dump is an archive, so while restoring you should mark the --archive flag on
-`mongorestore --db mydb --archive=/path/to/dump`
+`mongorestore --archive=/path/to/dump`
 ### Working example:
 
   ```
